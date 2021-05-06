@@ -1,0 +1,37 @@
+<%- include('partials/header'); -%>
+<div class="container-fluid p-5">
+<%- include('components/add-list'); -%>
+ <div class="row ">
+            <% boards.forEach((item) => { %>
+            <div class="col-auto alert-secondary p-3 mt-3 me-3 rounded">
+                <h3><%= item.name %></h3>
+               <% item.listItems.forEach((list) => { %>
+                <div class="p-2">
+                    <div class="card">
+                        <div class="card-body">
+                        <!-- <img width="100px" src=<%=list.image %> class="img-fluid" alt="..."> -->
+                          <p class="card-text"><%=list.detail%></p>
+                        <h6 class="card-subtitle mb-2 text-muted"><%=list.author%></h6>
+                      </div>
+                    </div>
+                </div>
+
+             <%   }) %>
+                
+                <div class="p-2">
+                    <form action="/" method="POST">
+                        <div class="row">
+                            <div class="col-auto">
+                                <input class="form-control" type="text" name="listItem" placeholder="add list" autocomplete="off">
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-primary" type="submit" name="button" value=<%= item.id %>>Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <%  }) %>
+ </div>
+</div>
+<%- include('partials/footer'); -%>
