@@ -26,15 +26,16 @@ app.post('/', (req,res) => {
         kanbanBoards.push(listName);
     }
     else{
-        const listItem = {
-            detail : req.body.listItem,
-            author : "Yuji",
-            image : "img/yuji.png"
-        }
-        kanbanBoards.forEach((abc) => {
+        kanbanBoards.forEach((board) => {
             let listID = Number(req.body.button);
-            if( listID === abc.id){
-                kanbanBoards[abc.id].listItems.push(listItem);
+            if( listID === board.id){
+                const listItem = {
+                    id: board.listItems.length,
+                    detail : req.body.listItem,
+                    author : "Yuji",
+                    image : "img/yuji.png"
+                }
+                kanbanBoards[board.id].listItems.push(listItem);
             }
         });
     }

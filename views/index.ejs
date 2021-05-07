@@ -5,20 +5,16 @@
             <% boards.forEach((item) => { %>
             <div class="col-auto alert-secondary p-3 mt-3 me-3 rounded">
                 <h3><%= item.name %></h3>
+                <div class="list-group">
                <% item.listItems.forEach((list) => { %>
-                <div class="p-2">
-                    <div class="card">
-                        <div class="card-body">
-                        <!-- <img width="100px" src=<%=list.image %> class="img-fluid" alt="..."> -->
-                          <p class="card-text"><%=list.detail%></p>
-                        <h6 class="card-subtitle mb-2 text-muted"><%=list.author%></h6>
-                      </div>
+                    <div class="list-group-item mt-3 rounded-2" id=<%=list.id%>>
+                          <p class="mb-2"><%=list.detail%></p>
                     </div>
-                </div>
-
              <%   }) %>
+            </div>
+            
                 
-                <div class="p-2">
+                <div class="p-2 mt-2">
                     <form action="/" method="POST">
                         <div class="row">
                             <div class="col-auto">
@@ -30,7 +26,6 @@
                         </div>
                     </form>
                 </div>
-            </div>
             <%  }) %>
  </div>
 </div>
